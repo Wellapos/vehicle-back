@@ -1,0 +1,42 @@
+{
+  "name": "vehicle-expense-api",
+  "version": "1.0.0",
+  "description": "API para gerenciamento de veículos e despesas com autenticação JWT",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "db:seed": "node prisma/seed.js",
+    "test:api": "node examples/api-test.js"
+  },
+  "keywords": [
+    "api",
+    "express",
+    "jwt",
+    "postgresql",
+    "prisma",
+    "vehicles",
+    "expenses"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1",
+    "@prisma/client": "^5.7.1",
+    "express-validator": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "prisma": "^5.7.1",
+    "axios": "^1.6.2"
+  }
+}
