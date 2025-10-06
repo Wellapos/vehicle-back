@@ -129,6 +129,14 @@ const createExpense = async (req, res) => {
       }
     })
 
+    // Atualizar a quilometragem atual do veículo se a nova despesa tiver quilometragem maior
+    if (parseFloat(quilometragem) > vehicle.quilometragemAtual) {
+      await prisma.vehicle.update({
+        where: { id: vehicleId },
+        data: { quilometragemAtual: parseFloat(quilometragem) }
+      })
+    }
+
     res.status(201).json({
       success: true,
       message: 'Despesa criada com sucesso',
@@ -265,4 +273,3 @@ module.exports = {
   updateExpense,
   deleteExpense
 }
-

@@ -35,7 +35,7 @@ const getCostPerKmReport = async (req, res) => {
       const quilometragemInicial =
         quilometragens.length > 0 ? Math.min(...quilometragens) : 0
       const quilometragemAtual = vehicle.quilometragemAtual
-      const quilometragemRodada = quilometragemAtual - quilometragemInicial
+      const quilometragemRodada = quilometragemAtual
 
       // Calcular custo por km
       const custoPorKm =
@@ -117,8 +117,7 @@ const getVehicleDetailedReport = async (req, res) => {
     const quilometragens = vehicle.expenses.map((e) => e.quilometragem)
     const quilometragemInicial =
       quilometragens.length > 0 ? Math.min(...quilometragens) : 0
-    const quilometragemRodada =
-      vehicle.quilometragemAtual - quilometragemInicial
+    const quilometragemRodada = vehicle.quilometragemAtual
     const custoPorKm =
       quilometragemRodada > 0 ? totalExpenses / quilometragemRodada : 0
 
@@ -197,4 +196,3 @@ module.exports = {
   getCostPerKmReport,
   getVehicleDetailedReport
 }
-
